@@ -1,0 +1,571 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Clientes para Indicação — dgenny®</title>
+<style>
+  :root {
+    --azul: #121325;
+    --azul-soft: #1c1e3a;
+    --roxo: #6660B4;
+    --roxo-soft: #8781c9;
+    --rosa: #FFBEF5;
+    --bg: #f6f4fb;
+    --bg-card: #ffffff;
+    --text: #121325;
+    --text-muted: #5b5a72;
+    --border: #e4e1f2;
+    --shadow: 0 1px 2px rgba(18,19,37,0.06), 0 8px 24px rgba(18,19,37,0.05);
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0d0e1c;
+    --bg-card: #171830;
+    --text: #f2f1fa;
+    --text-muted: #a7a4c4;
+    --border: #2a2b4a;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d0e1c;
+      --bg-card: #171830;
+      --text: #f2f1fa;
+      --text-muted: #a7a4c4;
+      --border: #2a2b4a;
+      --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px rgba(0,0,0,0.35);
+    }
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Quicksand', 'Calibri', 'Segoe UI', system-ui, sans-serif;
+    padding: 48px 24px 72px;
+    display: flex;
+    justify-content: center;
+  }
+
+  main {
+    width: 100%;
+    max-width: 760px;
+  }
+
+  .privacy-banner {
+    max-width: 760px;
+    margin: 0 auto 24px;
+    padding: 10px 16px;
+    border-radius: 10px;
+    background: rgba(102,96,180,0.1);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 12.5px;
+    text-align: center;
+  }
+
+  header {
+    margin-bottom: 40px;
+  }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Montserrat', 'Arial', 'Segoe UI', system-ui, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--roxo);
+    margin-bottom: 14px;
+  }
+
+  .eyebrow::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--rosa);
+    box-shadow: 0 0 0 3px rgba(255,190,245,0.35);
+  }
+
+  h1 {
+    font-family: 'Montserrat', 'Arial', 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: clamp(26px, 4vw, 34px);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    margin: 0 0 12px;
+    text-wrap: balance;
+  }
+
+  header p {
+    margin: 0;
+    max-width: none;
+    color: var(--text-muted);
+    font-size: 15.5px;
+    line-height: 1.6;
+    text-align: justify;
+    text-justify: inter-word;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 20px 22px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 12px 20px;
+  }
+
+  .card .identity {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .card .company {
+    font-family: 'Montserrat', 'Arial', 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    letter-spacing: -0.005em;
+  }
+
+  .card .location {
+    font-size: 13.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card .location svg {
+    width: 13px;
+    height: 13px;
+    flex: none;
+    opacity: 0.7;
+  }
+
+  .card .erp {
+    font-size: 12.5px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .card .erp .tag {
+    font-family: 'Montserrat', 'Arial', 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 10.5px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--roxo);
+    background: rgba(102,96,180,0.1);
+    border-radius: 5px;
+    padding: 2px 6px;
+  }
+
+  .card .erp.unknown .tag {
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px dashed var(--border);
+  }
+
+  .card .contact {
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+  }
+
+  .card .person {
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .card .person.pending {
+    font-style: italic;
+    opacity: 0.75;
+  }
+
+  .card .phone {
+    font-family: 'Montserrat', 'Arial', 'Segoe UI', system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    font-variant-numeric: tabular-nums;
+    color: var(--roxo);
+    text-decoration: none;
+    letter-spacing: 0.01em;
+  }
+
+  :root[data-theme="dark"] .card .phone,
+  @media (prefers-color-scheme: dark) {
+    .card .phone { color: var(--roxo-soft); }
+  }
+
+  .card .phone:hover {
+    text-decoration: underline;
+  }
+
+  footer {
+    margin-top: 36px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    font-size: 12.5px;
+    color: var(--text-muted);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  footer strong {
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  @media (max-width: 480px) {
+    .card {
+      grid-template-columns: 1fr;
+      justify-items: start;
+    }
+    .card .contact {
+      align-items: flex-start;
+      text-align: left;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="privacy-banner">Documento interno dgenny® — não enviar este link ao lead</div>
+
+<main>
+  <header>
+    <div class="eyebrow">dgenny® · indicação de clientes</div>
+    <h1>Clientes que podem servir de referência</h1>
+    <p>Clientes ativos dgenny® que autorizam potenciais clientes a entrarem em contato — para conversas informais, troca de experiência ou validação social durante o fechamento.</p>
+  </header>
+
+  <div class="list">
+    <div class="card">
+      <div class="identity">
+        <div class="company">Ilha Construtora</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Afonso Cláudio/ES
+        </div>
+        <div class="erp"><span class="tag">ERP Sienge</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Thayllon</div>
+        <a class="phone" href="tel:+552740424105">(27) 4042-4105</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Naus</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          São José dos Pinhais/PR
+        </div>
+        <div class="erp"><span class="tag">ERP Sienge</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">João Pedro</div>
+        <a class="phone" href="tel:+554884025251">(48) 8402-5251</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="identity">
+        <div class="company">ATR</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          São José dos Pinhais/PR
+        </div>
+        <div class="erp"><span class="tag">ERP Sienge</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Fabiana Mildemberg (suprimentos)</div>
+        <a class="phone" href="tel:+5541998846716">(41) 99884-6716</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">D'Campos</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Florianópolis/SC
+        </div>
+        <div class="erp"><span class="tag">ERP Sienge</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Laryssa Felix</div>
+        <a class="phone" href="tel:+554898048765">(48) 99804-8765</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Beco Castelo e Hogar</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Florianópolis/SC
+        </div>
+        <div class="erp"><span class="tag">ERP Sienge</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Ana Cintia de Melo</div>
+        <a class="phone" href="tel:+5548999970941">(48) 99997-0941</a>
+        <div class="person" style="margin-top:6px;">Gustavo Reis</div>
+        <a class="phone" href="tel:+554896134486">(48) 9613-4486</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Grupo BSG (Ágora Construtora)</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Belo Horizonte/MG
+        </div>
+        <div class="erp"><span class="tag">ERP Sienge</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Lara Marques (operacional)</div>
+        <a class="phone" href="tel:+5531984977953">(31) 98497-7953</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Tauf Empreendimentos</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Blumenau/SC
+        </div>
+        <div class="erp"><span class="tag">ERP Sienge</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Paula</div>
+        <a class="phone" href="tel:+554733049936">(47) 3304-9936</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Hera</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Belo Horizonte/MG
+        </div>
+        <div class="erp"><span class="tag">ERP Lumina</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Bernardo ou Simon</div>
+        <a class="phone" href="tel:+553131666389">(31) 3166-6389</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Balboa</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Trindade/GO
+        </div>
+        <div class="erp"><span class="tag">ERP Obra Prima</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Roberta</div>
+        <a class="phone" href="tel:+5562983314497">(62) 98331-4497</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Lagotela</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Poços de Caldas/MG
+        </div>
+        <div class="erp"><span class="tag">ERP CIGAM</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Fernando Gischewski Silva (compras)</div>
+        <a class="phone" href="tel:+5535998711419">(35) 99871-1419</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">DGT</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Estado a confirmar
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person pending">Contato pendente</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Sorriso</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Estado a confirmar
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person pending">Contato pendente</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">PZ</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Estado a confirmar
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person pending">Contato pendente</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Lima</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          MG (cidade a confirmar)
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person pending">Contato pendente</div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="identity">
+        <div class="company">Wanderley Construções</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          PB (cidade a confirmar)
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Eduardo Wanderley (sócio)</div>
+        <a class="phone" href="tel:+558398109251">(83) 98109-251</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="identity">
+        <div class="company">Sagat</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          Estado a confirmar
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person pending">Contato pendente</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">D2 Engenheiros</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          SP (cidade a confirmar)
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+        <div style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">Já ajudaram no fechamento da Vituzzo</div>
+      </div>
+      <div class="contact">
+        <div class="person">Aline Souza (operacional)</div>
+        <a class="phone" href="tel:+5511976478348">(11) 97647-8348</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Gimma Engenharia</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          SP (cidade a confirmar)
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Fernando Rodrigo de Melo (operacional)</div>
+        <a class="phone" href="tel:+5517982261741">(17) 98226-1741</a>
+      </div>
+    </div>
+    <div class="card">
+      <div class="identity">
+        <div class="company">Jotanunes</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          SE (cidade a confirmar)
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Gilvan Santos (coordenador de suprimentos)</div>
+        <a class="phone" href="tel:+5579998795109">(79) 99879-5109</a>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="identity">
+        <div class="company">Urbanize</div>
+        <div class="location">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0 1 14 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>
+          CE (cidade a confirmar)
+        </div>
+        <div class="erp unknown"><span class="tag">ERP a confirmar</span></div>
+      </div>
+      <div class="contact">
+        <div class="person">Luisa Monteiro (gerente de compras)</div>
+        <span class="phone" style="cursor:default;">(85) 9849-0067</span>
+        <div class="person pending" style="font-size:12px;">número incompleto no Radar — confirmar</div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <span>Uso interno — equipe comercial dgenny®</span>
+    <span>20 clientes prontos para indicar</span>
+  </footer>
+</main>
+
+</body>
+</html>
